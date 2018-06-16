@@ -26,16 +26,23 @@ In short, all you need to d is:
 * Clone this code from github
 * Install heroku toolbelt
 * heroku login
-* git init
-* git add .
-* git commit -m "first commit"
-* heroku create
-* git push heroku master
+* Do the following from the directory containing this repository's source code
+    * git init
+    * git add .
+    * git commit -m "first commit"
+    * heroku create
+    * git push heroku master
 
 
 From there, your server should be deployed in a few seconds, and you will be able to perform this demo from it.
 In my case, the server name is https://frozen-crag-69213.herokuapp.com (I will delete this later -- but you can deploy your own with this code!)
 
-# XSS
+# The Demo
+
+First head over to the [OWASP Juice Shop](https://juice-shop.herokuapp.com/) and click Login.  From there, you can register.  See Figure below:
+
+![picture alt](https://github.com/ScottContini/juiceshop_xss_example/blob/master/images/01_login_juice.png "Victim registers for an account")
+
+
 
 
