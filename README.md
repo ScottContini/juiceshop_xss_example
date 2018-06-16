@@ -41,68 +41,49 @@ In my case, the server name is https://frozen-crag-69213.herokuapp.com (I will d
 
 First head over to the [OWASP Juice Shop](https://juice-shop.herokuapp.com/) and click Login.  From there, you can register.  See Figure below:
 
-<kbd>
 ![picture alt](https://github.com/ScottContini/juiceshop_xss_example/blob/master/images/01_login_juice.png "Victim registers for an account")
-</kbd>
 
 
 From there you create the account of your victim user:
 
-<kbd>
-![picture alt](https://github.com/ScottContini/juiceshop_xss_example/blob/master/images/02_create_account.png "Victim creates an account")</kbd>
+![picture alt](https://github.com/ScottContini/juiceshop_xss_example/blob/master/images/02_create_account.png "Victim creates an account")
 
 
 Next, the victim logs in:
 
-<kbd>
 ![picture alt](https://github.com/ScottContini/juiceshop_xss_example/blob/master/images/03_victim_login.png "Victim logs in")
-</kbd>
 
 All is fine and dandy, until somebody tells the victim of a website that offers free juice to OWASP Juice Shop customers.  What could be better!
 The victim rushes to the site (for our temporary deployment, link is: https://frozen-crag-69213.herokuapp.com/freejuice):
 
-<kbd>
 ![picture alt](https://github.com/ScottContini/juiceshop_xss_example/blob/master/images/04_freejuice.png "Victim logs in")
-</kbd>
 
 Upon clicking the link, the DOM-based XSS is triggered.  A nontechnical user would likely not understand that a script has executed from the malicious site.
 In fact, in this case, the script has taken the victim's cookie and sent it to the malicious website.  The malicious website has a /recorddata endpoint
 that records the cookie in a temporary file (a more serious implementation would use a database).
 
-<kbd>
 ![picture alt](https://github.com/ScottContini/juiceshop_xss_example/blob/master/images/05_link_clicked.png "A script has executed in victim's browser")
-</kbd>
 
 Our malicious server also has a /dumpdata endpoint for displaying all the captured cookies.
 
 
-<kbd>
 ![picture alt](https://github.com/ScottContini/juiceshop_xss_example/blob/master/images/06_retrieve_cookie.png "We have the victim's cookie!")
-</kbd>
 
 Inside the cookie is a JWT.  Let's copy that JWT into our clip board (eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdGF0dXMiOiJzdWNjZXNzIiwiZGF0YSI6eyJpZCI6OSwiZW1haWwiOiJoYXBsZXNzX3ZpY3RpbUBtYWlsaW5hdG9yLmNvbSIsInBhc3N3b3JkIjoiNzA0OTU0OGExMWNhMWQwOGQwMTdkMjQyOWJiMDRhM2IiLCJjcmVhdGVkQXQiOiIyMDE4LTA2LTE2IDA1OjAzOjIzLjA0NyArMDA6MDAiLCJ1cGRhdGVkQXQiOiIyMDE4LTA2LTE2IDA1OjAzOjIzLjA0NyArMDA6MDAifSwiaWF0IjoxNTI5MTI1NDc5LCJleHAiOjE1MjkxNDM0Nzl9.SEeygolhgMsMor0VRJDAL1pg5FGG5m_TUobAgVcaq8OmnZNB8-HfoPGnGj6ZVOBgCJgqEv-AnVHkX4zq11pgZNlbyZcMiEZ0zPpNpiJDejZc047USw5NGeUp-FkUcJv7JgBSqlfHyoNhTepiwXsPgy65tuFRv3NSWEJ_0uUg0Gk or this demo):
 
-<kbd>
 ![picture alt](https://github.com/ScottContini/juiceshop_xss_example/blob/master/images/07_copy_cookie.png "Copy the JWT")
-</kbd>
 
 And now head over to [jwt.io](https://jwt.io/) where we can paste the token in and decode it:
 
-<kbd>
 ![picture alt](https://github.com/ScottContini/juiceshop_xss_example/blob/master/images/08_jwt_decoded.png "The token decoded")
-</kbd>
 
 Amazing!  The username and password are in the cookie.  But that's not the real password, so what is it?  Let's Google it:
 
-<kbd>
 ![picture alt](https://github.com/ScottContini/juiceshop_xss_example/blob/master/images/09_google_dorking.png "The token decoded")
-</kbd>
 
 And clicking the first link, we find out that it was the MD5 hash of the password.  The real password is revealed in the link:
 
-<kbd>
 ![picture alt](https://github.com/ScottContini/juiceshop_xss_example/blob/master/images/10_get_password.png "The token decoded")
-</kbd>
 
 There are lots of other goodies in the OWASP Juice Shop that are fun to demonstrate, so get over there and check it out!
 
