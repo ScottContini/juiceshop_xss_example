@@ -1,12 +1,16 @@
-#! /usr/bin/env python2
+#! /usr/bin/env python
 #
 
+from base64 import b64decode
 from os.path import isfile
 from time import asctime
-from commands import getoutput
-from base64 import b64decode
 
 from flask import Flask, redirect, render_template, request
+
+try:
+    from commands import getoutput
+except:
+    from subprocess import getoutput
 
 app = Flask(__name__)
 
