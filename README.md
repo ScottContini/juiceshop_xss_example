@@ -1,6 +1,6 @@
 # Overview
 
-This repo is for creating a [Heroku](https://www.Heroku.com/) python2 Flask application for the purpose of demonstrating how a cross site scripting (XSS) vulnerability
+This repo is for creating a [Heroku](https://www.Heroku.com/) python2 and python3 Flask application for the purpose of demonstrating how a cross site scripting (XSS) vulnerability
 can lead to stealing user passwords in the [OWASP Juice Shop](https://juice-shop.herokuapp.com/) website.
 
 I have used this to teach application security to development teams.  The OWASP Juice Shop is an absolutely fantastic site for demonstrating
